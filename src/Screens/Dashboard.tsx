@@ -1,8 +1,9 @@
 import React from 'react';
 import { InputFormFields, InputForm } from '../Components/InputForm';
+
 import './dashboard.css';
 
-export class Dashboard extends React.Component<any, any> {
+export class DashboardScreen extends React.Component<any, any> {
     // constructor(props: any, state: any) {
     //     super(props, state);
     // }

@@ -1,10 +1,10 @@
 import React from 'react';
-import { Dashboard } from './Screens/Dashboard';
+import NEDRouter from './Router';
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Dashboard />
+      <NEDRouter />
     </div>
   );
 }
