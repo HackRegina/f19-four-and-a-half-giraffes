@@ -37,6 +37,7 @@ export type InputFormFields = {
 };
 
 export const InputForm: React.FC<IInputFormProps> = (props) => {
+    const [ formSubmitted, setFormSubmitted ] = React.useState(false);
     const [ initials, setInitials ] = React.useState('');
     const [ monthAndYearOfBirth, setMonthAndYearOfBirth] = React.useState();
     const [ gender, setGender ] = React.useState(Gender.Male);
@@ -47,6 +48,25 @@ export const InputForm: React.FC<IInputFormProps> = (props) => {
         sexWorker: false,
         inhalationDrugUser: false,
         naloxoneTrained: false,
+    });
+
+    React.useEffect(() => {
+        console.log('something changed.');
+        if (formSubmitted) {
+            setFormSubmitted(false);
+
+            setInitials('');
+            setMonthAndYearOfBirth('');
+            setGender(Gender.Male);
+            setLocation('Regina');
+            setEthnicity('');
+            setOtherQualities({
+                injectionDrugUser: false,
+                sexWorker: false,
+                inhalationDrugUser: false,
+                naloxoneTrained: false,
+            });
+        }
     });
 
     return (
@@ -60,6 +80,7 @@ export const InputForm: React.FC<IInputFormProps> = (props) => {
                     </Grid>
                     <Grid item xs={9} className="entry-input">
                     <TextField
+                        value={initials}
                         variant="outlined"
                         fullWidth
                         placeholder="abc or ab"
@@ -74,6 +95,7 @@ export const InputForm: React.FC<IInputFormProps> = (props) => {
                     </Grid>
                     <Grid item xs={9} className="entry-input">
                     <TextField
+                        value={monthAndYearOfBirth}
                         variant="outlined"
                         fullWidth
                         placeholder="xxyy, 2-digit month, 2-digit year"
@@ -202,7 +224,7 @@ export const InputForm: React.FC<IInputFormProps> = (props) => {
                                     injectionDrugUser: e.target.checked,
                                 });
                             }}
-                            value=""
+                            checked={otherQualities.injectionDrugUser}
                         />
                         }
                         label="Injection Drug User"
@@ -217,7 +239,7 @@ export const InputForm: React.FC<IInputFormProps> = (props) => {
                                     sexWorker: e.target.checked,
                                 });
                             }}
-                            value=""
+                            checked={otherQualities.sexWorker}
                         />
                         }
                         label="Sex Worker"
@@ -232,7 +254,7 @@ export const InputForm: React.FC<IInputFormProps> = (props) => {
                                     inhalationDrugUser: e.target.checked,
                                 });
                             }}
-                            value=""
+                            checked={otherQualities.inhalationDrugUser}
                         />
                         }
                         label="Inhalation Drug User"
@@ -247,7 +269,7 @@ export const InputForm: React.FC<IInputFormProps> = (props) => {
                                     naloxoneTrained: e.target.checked,
                                 });
                             }}
-                            value="checkedG"
+                            checked={otherQualities.naloxoneTrained}
                         />
                         }
                         label="Naloxone Trained"
@@ -264,6 +286,8 @@ export const InputForm: React.FC<IInputFormProps> = (props) => {
                         color="primary"
                         size="large"
                         onClick={() => {
+                            setFormSubmitted(true);
+
                             props.onSubmit({
                                 initials,
                                 monthAndYearOfBirth,
