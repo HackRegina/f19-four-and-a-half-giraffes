@@ -39,19 +39,19 @@ export class AppDrawer extends React.Component<any, IDrawerState> {
                         <Typography
                             variant="h3"
                         >
-                            <Link to="/">Dashboard</Link>
+                            <Link onClick={this._toggleDrawer} to="/">Dashboard</Link>
                         </Typography>
 
                         <Typography
                             variant="h3"
                         >
-                            <Link to="/records">Records</Link>
+                            <Link onClick={this._toggleDrawer} to="/records">Records</Link>
                         </Typography>
 
                         <Typography
                             variant="h3"
                         >
-                            <Link to="/reports">Reports</Link>
+                            <Link onClick={this._toggleDrawer} to="/reports">Reports</Link>
                         </Typography>
                     </div>
                 </Drawer>

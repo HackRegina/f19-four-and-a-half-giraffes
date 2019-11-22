@@ -17,3 +17,9 @@ body {
   height: 120px;
   width: auto;
 }
+
+.full-size-text {
+  font-weight: 100;
+  font-size: 4rem;
+  
+}
