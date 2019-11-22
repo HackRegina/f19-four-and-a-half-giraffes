@@ -5,10 +5,6 @@ import './dashboard.css';
 import { NEDStorageController } from '../Controllers/NEDStorageController';
 
 export class DashboardScreen extends React.Component<any, any> {
-    // constructor(props: any, state: any) {
-    //     super(props, state);
-    // }
-
     private dbController = new NEDStorageController();
 
     private _handleSubmitted = (inputFields: InputFormFields): void => {

@@ -21,6 +21,14 @@ export class NEDStorageController {
         console.log('*** Local database initialized:', this._db);
     }
 
+    public loadAllRecords(): InputFormFields[] {
+        if (this._db) {
+            return this._db;
+        }
+
+        return [];
+    }
+
     public addRecord(payload: InputFormFields): void {
         if (this._db) {
 

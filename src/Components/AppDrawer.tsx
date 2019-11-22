@@ -45,6 +45,12 @@ export class AppDrawer extends React.Component<any, IDrawerState> {
                         <Typography
                             variant="h3"
                         >
+                            <Link to="/records">Records</Link>
+                        </Typography>
+
+                        <Typography
+                            variant="h3"
+                        >
                             <Link to="/reports">Reports</Link>
                         </Typography>
                     </div>

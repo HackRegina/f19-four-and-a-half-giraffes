@@ -67,7 +67,7 @@ export const InputForm: React.FC<IInputFormProps> = (props) => {
                 naloxoneTrained: false,
             });
         }
-    });
+    }, [formSubmitted]);
 
     return (
         <div className="form-container">
