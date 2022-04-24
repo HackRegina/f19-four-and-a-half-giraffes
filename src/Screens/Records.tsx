@@ -32,16 +32,20 @@ class RecordsComponent extends React.Component<any, IRecordsState> {
     }
     
     private _fullYearForLastDigits = (digits: string): number | undefined => {
-        const match = digits.match(/(?<=\d\d)\d\d$/);
-        if (!match) {
-            return undefined;
-        }
-        const lastTwo = parseInt(match[0]);
+        // if (digits == null) {
+        //     return 0;
+        // }
 
-        // const lastTwo = typeof digits === 'string' ? parseInt(digits) : digits;
-        const fullYear = lastTwo > 19 ? `19${match[0]}` : `20${match[0]}`;
+        // const match = digits.match(/(?<=\d\d)\d\d$/);
+        // if (!match) {
+        //     return undefined;
+        // }
+        // const lastTwo = parseInt(match[0]);
+
+        // // const lastTwo = typeof digits === 'string' ? parseInt(digits) : digits;
+        // const fullYear = lastTwo > 19 ? `19${match[0]}` : `20${match[0]}`;
         
-        return parseInt(fullYear);
+        return parseInt(digits);
     }
 
     private _renderTableData = (records: InputFormFields[]) => {
